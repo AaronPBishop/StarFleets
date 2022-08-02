@@ -1,0 +1,111 @@
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-image: url('./Dark-CyberSea.webp');
+    background-size: cover;
+
+    display: table-cell;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+h1 {
+    display: flex; 
+    justify-content: center;
+    color: white;
+    box-shadow: 0px 10px 20px rgba(64, 78, 226, 0.8);
+    border-radius: 10px;
+    bottom: 5px;
+    min-height: 45px;
+    max-width: 200px;
+}
+
+h2 {
+    display: flex; 
+    justify-content: center;
+    color: white;
+}
+
+#gameBox {
+    background-color: rgb(0, 0, 0);
+    min-height: 610px;
+    max-height: 610px;
+    min-width: 100%;
+    max-width: 100%;
+    box-shadow: 0px 10px 20px rgb(7, 7, 80);
+
+    position: relative;
+    right: 15px;
+    bottom: 20px;
+    margin: 25px;
+    border-radius: 20px;
+    opacity: 80%;
+}
+
+.rows {
+    margin: 0 auto;
+}
+
+.buttons {
+    background-color: rgb(78, 78, 78);
+    font-family: 'Orbitron', sans-serif;
+
+    min-height: 63px;
+    max-height: 63px;
+    min-width: 63px;
+    max-width: 63px;
+    border-radius: 10px;
+    margin: 1px;
+
+    position: relative;
+    left: 25px;
+    top: 10px
+}
+
+.buttons:hover {
+    box-shadow: 0px 0px 5px rgba(64, 78, 226);
+}
+
+#reset {
+    display: none;
+    position: relative;
+    background-color: rgb(41, 38, 38);
+    color: white;
+
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 10px;
+
+    min-height: 30px;
+    max-height: 80px;
+    min-width: 100px;
+    max-width: 100px;
+
+    border: 2px solid white;
+    border-radius: 4px;
+}
+
+#reset:hover {
+    box-shadow: 0px 0px 5px navy;
+}
+
+.score {
+    color: white;
+    position: relative;
+    right: 450px;
+    bottom: 400px;
+}
+
+.moves {
+    color: white;
+    position: relative;
+    left: 450px;
+    bottom: 475px;
+}
