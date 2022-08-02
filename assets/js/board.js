@@ -6,14 +6,15 @@ export default class Board {
         this.grid = this.populateGrid();
         this.misses = 27;
         this.numRemaining = 17;
-    }
+    };
 
     populateGrid() {
         const grid = [];
         // Initialize empty board
         for (let i = 0; i < this.numRows; i++) {
             grid.push(Array(this.numCols).fill(null));
-        }
+        };
+
         const orientations = ["x+", "x-", "y+", "y-"];
         this.ships.forEach(ship => {
             // Choose orientation and start coord
@@ -33,11 +34,11 @@ export default class Board {
             this.setShip(grid, ship, x, y, orientation);
         });
         return grid;
-    }
+    };
 
     makeHit(row, col) {
         return this.grid[row][col];
-    }
+    };
 
     verifyFit(grid, length, x, y, orientation) {
         if (orientation === "x+") {
@@ -58,7 +59,7 @@ export default class Board {
             }
         }
         return true;
-    }
+    };
 
     setShip(grid, length, x, y, orientation) {
         if (orientation === "x+") {
@@ -78,13 +79,13 @@ export default class Board {
                 grid[i][x] = length;
             }
         }
-    }
+    };
 
     isLoss() {
         return this.misses === 0;
-    }
+    };
 
     isWin() {
         return this.numRemaining === 0;
-    }
+    };
 }
