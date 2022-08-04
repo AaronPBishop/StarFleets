@@ -67,7 +67,8 @@ h2 {
 
     position: relative;
     left: 25px;
-    top: 10px
+    top: 10px;
+    transition: background .5s linear, color .15s linear;
 }
 
 .buttons:hover {
