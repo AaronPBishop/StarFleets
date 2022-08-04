@@ -9,8 +9,12 @@ const gameBox = document.getElementById('gameBox');
 let savedLosses = 0;
 let savedWins = 0;
 
+if (sessionStorage.getItem('totalLosses')) savedLosses = sessionStorage.getItem('totalLosses');
+
 const loseScore = document.getElementById('losses');
 loseScore.innerText = `Losses: ${savedLosses}`;
+
+if (sessionStorage.getItem('totalWins')) savedWins = sessionStorage.getItem('totalWins');
 
 const winScore = document.getElementById('wins');
 winScore.innerText = `Wins: ${savedWins}`;
@@ -108,12 +112,6 @@ window.addEventListener("DOMContentLoaded", () => {
     const reset = document.getElementById('reset');
 
     reset.addEventListener("click", () => {
-        savedLosses = sessionStorage.getItem('totalLosses');
-        savedWins = sessionStorage.getItem('totalWins');
-
-        loseScore.innerText = `Losses: ${savedLosses}`;
-        winScore.innerText = `Wins: ${savedWins}`;
-
         window.location.reload(true);
     });
 });
