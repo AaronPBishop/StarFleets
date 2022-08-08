@@ -81,7 +81,6 @@ const checkPosition = (e) => {
     currButton.removeEventListener('click', checkPosition);
 };
 
-
 const populateBoard = (grid) => {
     for (let row = 0; row < grid.length; row++) {
         let currDiv = document.createElement('div');
