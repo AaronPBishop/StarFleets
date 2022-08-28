@@ -1,6 +1,6 @@
 body {
     font-family: 'Orbitron', sans-serif;
-    background-image: url('./Dark-CyberSea.webp');
+    background-image: url('Abstract.webp');
     background-size: cover;
 
     display: table-cell;
@@ -21,11 +21,12 @@ h1 {
     display: flex; 
     justify-content: center;
     color: white;
-    box-shadow: 0px 10px 20px rgba(64, 78, 226, 0.8);
+    box-shadow: 0px 10px 20px rgb(15, 15, 130);
     border-radius: 10px;
     bottom: 5px;
     min-height: 45px;
     max-width: 200px;
+    border: 2px solid white
 }
 
 h2 {
@@ -40,14 +41,15 @@ h2 {
     max-height: 610px;
     min-width: 100%;
     max-width: 100%;
-    box-shadow: 0px 10px 20px rgb(7, 7, 80);
+    box-shadow: 0px 15px 20px rgb(15, 15, 130);
 
     position: relative;
     right: 15px;
-    bottom: 20px;
+    bottom: 30px;
     margin: 25px;
     border-radius: 20px;
     opacity: 80%;
+    border: 2px solid white;
 }
 
 .rows {
