@@ -34,8 +34,10 @@ const checkPosition = (e) => {
     const currButtonVal = board.makeHit(currButton.dataset.row, currButton.dataset.col);
 
     if (!currButtonVal) {
+        currButton.innerText = 'X';
+
         board.misses--;
-        currButton.style.backgroundColor = 'red';
+        currButton.style.backgroundImage = 'linear-gradient(#5F0A87, #A4508B)';
         missesLeft.innerText = `Misses left: ${board.misses}`;
 
         if (board.isLoss()) {
@@ -55,8 +57,8 @@ const checkPosition = (e) => {
     };
 
     if (currButtonVal) {
-        currButton.innerHTML = currButtonVal;
-        currButton.style.backgroundColor = 'green';
+        currButton.innerText = currButtonVal;
+        currButton.style.backgroundImage = 'linear-gradient(#DE4DAA, #F6D327)';
 
         board.numRemaining--;
         hitsLeft.innerText = `Hits left: ${board.numRemaining}`;

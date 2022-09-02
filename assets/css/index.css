@@ -1,32 +1,28 @@
 body {
     font-family: 'Orbitron', sans-serif;
-    background-image: url('Abstract.webp');
+    background-image: url('HyperSpace.jpg');
     background-size: cover;
-
-    display: table-cell;
-    vertical-align: middle;
     overflow: hidden;
 }
 
-html, body {
-    height: 100%;
-}
-
-html {
-    display: table;
-    margin: auto;
-}
 
 h1 {
     display: flex; 
     justify-content: center;
+
     color: white;
-    box-shadow: 0px 10px 20px rgb(15, 15, 130);
-    border-radius: 10px;
-    bottom: 5px;
+    box-shadow: 0px 5px 20px rgb(255, 0, 179);
+
+    position: relative;
+    bottom: 10px;
+
     min-height: 45px;
-    max-width: 200px;
-    border: 2px solid white
+    max-width: 190px;
+
+    background-color: rgb(0, 1, 53);
+
+    border: 2px solid rgb(0, 170, 255);
+    border-radius: 20px;
 }
 
 h2 {
@@ -36,20 +32,20 @@ h2 {
 }
 
 #gameBox {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 1, 35);
     min-height: 610px;
     max-height: 610px;
-    min-width: 100%;
-    max-width: 100%;
-    box-shadow: 0px 15px 20px rgb(15, 15, 130);
+    min-width: 650px;
+    max-width: 650px;
+    
+    box-shadow: 0px 10px 20px rgb(255, 0, 179);
 
     position: relative;
-    right: 15px;
-    bottom: 30px;
+    bottom: 40px;
     margin: 25px;
-    border-radius: 20px;
-    opacity: 80%;
-    border: 2px solid white;
+    border-radius: 25px;
+    opacity: 93%;
+    border: 2px solid rgb(0, 170, 255);
 }
 
 .rows {
@@ -57,7 +53,7 @@ h2 {
 }
 
 .buttons {
-    background-color: rgb(78, 78, 78);
+    background-color: rgb(0, 2, 105);
     font-family: 'Orbitron', sans-serif;
 
     min-height: 63px;
@@ -67,14 +63,20 @@ h2 {
     border-radius: 10px;
     margin: 1px;
 
+    color: black;
+    box-shadow: 1px 2px 1px black;
+    
+
     position: relative;
-    left: 25px;
+    left: 35px;
     top: 10px;
     transition: background .5s linear, color .15s linear;
 }
 
 .buttons:hover {
     box-shadow: 0px 0px 5px rgba(64, 78, 226);
+
+    color: rgb(115, 75, 165);
 }
 
 #reset {
