@@ -5,7 +5,7 @@ export default class Board {
         this.fleets = [5, 4, 3, 2];
         this.fleetObj = { 5: 5, 4: 4, 3: 3, 2: 2 };
         this.grid = this.populateGrid();
-        this.projectiles = 27;
+        this.projectiles = 30;
         this.ships = 14;
     };
 

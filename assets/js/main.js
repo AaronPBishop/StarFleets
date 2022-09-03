@@ -3,7 +3,6 @@ import Board from "./board.js";
 let board = new Board();
 
 const grid = board.grid;
-const body = document.querySelector(".body"); 
 const gameBox = document.getElementById('gameBox');
 const movesBox = document.getElementById('movesBox');
 const scoreBox = document.getElementById('scoreBox');
@@ -77,7 +76,6 @@ const checkPosition = (e) => {
             gameBox.style.display = 'none';
             movesBox.style.display = 'none';
             scoreBox.style.display = 'none';
-            body.backgroundPosition = 'center'
 
             savedLosses++;
             sessionStorage.setItem('totalLosses', savedLosses);
@@ -103,10 +101,22 @@ const checkPosition = (e) => {
             gameBox.style.display = 'none';
             movesBox.style.display = 'none';
             scoreBox.style.display = 'none';
-            body.backgroundPosition = 'center'
 
             savedWins++;
             sessionStorage.setItem('totalWins', savedWins);
+        };
+
+        if (board.checkWin() === false) {
+            currResults.style.display = 'flex';
+            currResults.innerText = 'You\'re obliterated! Better luck next time, commander.';
+            reset.style.display = 'block';
+
+            gameBox.style.display = 'none';
+            movesBox.style.display = 'none';
+            scoreBox.style.display = 'none';
+
+            savedLosses++;
+            sessionStorage.setItem('totalLosses', savedLosses);
         };
     };
 
