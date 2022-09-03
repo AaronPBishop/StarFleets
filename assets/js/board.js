@@ -11,27 +11,24 @@ export default class Board {
 
     populateGrid() {
         const grid = [];
-        // Initialize empty board
+
         for (let i = 0; i < this.numRows; i++) {
             grid.push(Array(this.numCols).fill(null));
         };
 
         const orientations = ["x+", "x-", "y+", "y-"];
         this.fleets.forEach(fleet => {
-            // Choose orientation and start coord
             let orientation = orientations[Math.floor(Math.random() * 4)];
             let x = Math.floor(Math.random() * this.numCols);
             let y = Math.floor(Math.random() * this.numRows);
 
-            // // While fleet doesn't fit
             while (!this.verifyFit(grid, fleet, x, y, orientation)) {
-                // Choose new orientation and start coord
                 orientation = orientations[Math.floor(Math.random() * 4)];
+
                 x = Math.floor(Math.random() * this.numCols);
                 y = Math.floor(Math.random() * this.numRows);
-            }
+            };
 
-            // Set coordinates
             this.setFleet(grid, fleet, x, y, orientation);
         });
         return grid;

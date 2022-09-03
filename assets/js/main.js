@@ -26,8 +26,6 @@ const fleetsEl = document.getElementById('fleets');
 
 const currResults = document.getElementById('results');
 
-console.log(grid)
-
 const alterProjectiles = () => {
     projectilesEl.innerText = '';
     
@@ -64,7 +62,8 @@ const checkPosition = (e) => {
 
         board.projectiles--;
 
-        currButton.style.backgroundImage = 'linear-gradient(#5F0A87, #A4508B)';
+        // currButton.style.backgroundImage = 'linear-gradient(#5F0A87, #A4508B)';
+        currButton.style.backgroundImage = 'linear-gradient(rgb(0, 0, 75), rgb(255, 0, 180))';
         
         alterProjectiles();
 
@@ -84,7 +83,7 @@ const checkPosition = (e) => {
 
     if (currButtonVal) {
         currButton.innerText = currButtonVal;
-        currButton.style.backgroundImage = 'linear-gradient(#DE4DAA, #F6D327)';
+        currButton.style.backgroundImage = 'linear-gradient(rgb(255, 0, 180), #F6D327)';
 
         board.projectiles--;
         if (board.fleetObj[currButtonVal] > 0) board.fleetObj[currButtonVal] -= 1;
