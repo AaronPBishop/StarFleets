@@ -2,10 +2,11 @@ export default class Board {
     constructor() {
         this.numRows = 9;
         this.numCols = 9;
-        this.ships = [5, 4, 3, 3, 2];
+        this.fleets = [5, 4, 3, 2];
+        this.fleetObj = { 5: 5, 4: 4, 3: 3, 2: 2 };
         this.grid = this.populateGrid();
-        this.misses = 27;
-        this.numRemaining = 17;
+        this.projectiles = 27;
+        this.ships = 14;
     };
 
     populateGrid() {
@@ -16,14 +17,14 @@ export default class Board {
         };
 
         const orientations = ["x+", "x-", "y+", "y-"];
-        this.ships.forEach(ship => {
+        this.fleets.forEach(fleet => {
             // Choose orientation and start coord
             let orientation = orientations[Math.floor(Math.random() * 4)];
             let x = Math.floor(Math.random() * this.numCols);
             let y = Math.floor(Math.random() * this.numRows);
 
-            // // While ship doesn't fit
-            while (!this.verifyFit(grid, ship, x, y, orientation)) {
+            // // While fleet doesn't fit
+            while (!this.verifyFit(grid, fleet, x, y, orientation)) {
                 // Choose new orientation and start coord
                 orientation = orientations[Math.floor(Math.random() * 4)];
                 x = Math.floor(Math.random() * this.numCols);
@@ -31,7 +32,7 @@ export default class Board {
             }
 
             // Set coordinates
-            this.setShip(grid, ship, x, y, orientation);
+            this.setFleet(grid, fleet, x, y, orientation);
         });
         return grid;
     };
@@ -61,7 +62,7 @@ export default class Board {
         return true;
     };
 
-    setShip(grid, length, x, y, orientation) {
+    setFleet(grid, length, x, y, orientation) {
         if (orientation === "x+") {
             for(let i = x; i < x + length; i++) {
                 grid[y][i] = length;
@@ -81,11 +82,8 @@ export default class Board {
         }
     };
 
-    isLoss() {
-        return this.misses === 0;
-    };
-
-    isWin() {
-        return this.numRemaining === 0;
+    checkWin() {
+        if (this.projectiles === 0 && this.ships > 0) return false;
+        if (this.projectiles >= 0 && this.ships === 0) return true;
     };
 }

@@ -2,6 +2,7 @@ body {
     font-family: 'Orbitron', sans-serif;
     background-image: url('HyperSpace.jpg');
     background-size: cover;
+    background-position: center;
     overflow: hidden;
 }
 
@@ -17,7 +18,9 @@ h1 {
     bottom: 10px;
 
     min-height: 45px;
-    max-width: 190px;
+    max-height: 45px;
+    min-width: 210px;
+    max-width: 210px;
 
     background-color: rgb(0, 1, 53);
 
@@ -26,9 +29,32 @@ h1 {
 }
 
 h2 {
-    display: flex; 
+    display: none;
     justify-content: center;
     color: white;
+    background-color: rgb(0, 1, 53);
+
+    font-size: 35px;
+
+    position: relative;
+    top: 150px;
+
+    margin-left: 170px;
+    margin-right: 170px;
+
+    min-height: 70px;
+    max-height: 70px;
+
+    text-align: center;
+    vertical-align: middle;
+    line-height: 65px;
+
+    border: 2px solid rgb(0, 170, 255);
+    border-radius: 20px;
+
+    opacity: 85%;
+
+    box-shadow: 0px 5px 20px rgb(255, 0, 179);
 }
 
 #gameBox {
@@ -41,7 +67,7 @@ h2 {
     box-shadow: 0px 10px 20px rgb(255, 0, 179);
 
     position: relative;
-    bottom: 40px;
+    bottom: 15px;
     margin: 25px;
     border-radius: 25px;
     opacity: 93%;
@@ -53,7 +79,7 @@ h2 {
 }
 
 .buttons {
-    background-color: rgb(0, 2, 105);
+    background-color: rgb(0, 0, 110);
     font-family: 'Orbitron', sans-serif;
 
     min-height: 63px;
@@ -63,9 +89,8 @@ h2 {
     border-radius: 10px;
     margin: 1px;
 
-    color: black;
-    box-shadow: 1px 2px 1px black;
-    
+    color: white;
+    box-shadow: 1px 2px 1px black;    
 
     position: relative;
     left: 35px;
@@ -74,43 +99,80 @@ h2 {
 }
 
 .buttons:hover {
-    box-shadow: 0px 0px 5px rgba(64, 78, 226);
+    box-shadow: 0px 0px 5px rgb(255, 0, 255);
 
     color: rgb(115, 75, 165);
+}
+
+#movesBox {
+    display: block;
+
+    color: white;
+    background-color: rgb(0, 1, 35);
+    overflow-wrap: break-word;
+
+    min-height: 210px;
+    max-height: 210px;
+    min-width: 200px;
+    max-width: 200px;
+    
+    box-shadow: 0px 10px 20px rgb(255, 0, 179);
+
+    position: relative;
+    left: 465px;
+    bottom: 650px;
+
+    margin: 25px;
+    border-radius: 25px;
+    opacity: 95%;
+    border: 2px solid rgb(0, 170, 255);
+}
+
+#scoreBox {
+    display: block;
+
+    color: white;
+    background-color: rgb(0, 1, 35);
+
+    min-height: 90px;
+    max-height: 90px;
+    min-width: 200px;
+    max-width: 200px;
+    
+    box-shadow: 0px 10px 20px rgb(255, 0, 179);
+
+    position: relative;
+    left: 465px;
+    bottom: 280px;
+
+    margin: 25px;
+    border-radius: 25px;
+    opacity: 95%;
+    border: 2px solid rgb(0, 170, 255);
 }
 
 #reset {
     display: none;
     position: relative;
-    background-color: rgb(41, 38, 38);
+    top: 180px;
     color: white;
 
     font-family: 'Orbitron', sans-serif;
-    border-radius: 10px;
+    font-size: 20px;
 
-    min-height: 30px;
-    max-height: 80px;
-    min-width: 100px;
-    max-width: 100px;
+    min-height: 60px;
+    max-height: 60px;
+    min-width: 200px;
+    max-width: 200px;
 
-    border: 2px solid white;
-    border-radius: 4px;
+    background-color: rgb(0, 1, 53);
+
+    border: 2px solid rgb(0, 170, 255);
+    border-radius: 20px;
+
+    opacity: 85%;
 }
 
 #reset:hover {
-    box-shadow: 0px 0px 5px navy;
-}
-
-.score {
-    color: white;
-    position: relative;
-    right: 450px;
-    bottom: 400px;
-}
-
-.moves {
-    color: white;
-    position: relative;
-    left: 450px;
-    bottom: 475px;
+    box-shadow: 0px 5px 20px rgb(255, 0, 179);
 }

@@ -2,9 +2,11 @@ import Board from "./board.js";
 
 let board = new Board();
 
-// Elements
 const grid = board.grid;
+const body = document.querySelector(".body"); 
 const gameBox = document.getElementById('gameBox');
+const movesBox = document.getElementById('movesBox');
+const scoreBox = document.getElementById('scoreBox');
 
 let savedLosses = 0;
 let savedWins = 0;
@@ -19,37 +21,63 @@ if (sessionStorage.getItem('totalWins')) savedWins = sessionStorage.getItem('tot
 const winScore = document.getElementById('wins');
 winScore.innerText = `Wins: ${savedWins}`;
 
-const hitsLeft = document.getElementById('hitsLeft');
-hitsLeft.innerText = `Hits left: ${board.numRemaining}`;
+const projectilesEl = document.getElementById('projectiles');
 
-const missesLeft = document.getElementById('missesLeft');
-missesLeft.innerText = `Misses left: ${board.misses}`;
+const fleetsEl = document.getElementById('fleets');
+
+const currResults = document.getElementById('results');
 
 console.log(grid)
 
-const checkPosition = (e) => {
-    let currResults = document.getElementById('results');
+const alterProjectiles = () => {
+    projectilesEl.innerText = '';
+    
+    let totalProjectiles = board.projectiles;
+    while (totalProjectiles > 0) {
+        projectilesEl.innerText += '💥';
+        totalProjectiles--;
+    };
+};
 
+const alterFleets = () => {
+    fleetsEl.innerText = '';
+    
+    const fleetKeys = [];
+    for (let key in board.fleetObj) {
+        let val = board.fleetObj[key];
+
+        if (val > 0) fleetKeys.push(key);
+    };
+    
+    let totalFleets = fleetKeys.length;
+    while (totalFleets > 0) {
+        fleetsEl.innerText += '🚀';
+        totalFleets--;
+    };
+};
+
+const checkPosition = (e) => {
     const currButton = e.target;
     const currButtonVal = board.makeHit(currButton.dataset.row, currButton.dataset.col);
 
     if (!currButtonVal) {
         currButton.innerText = 'X';
 
-        board.misses--;
-        currButton.style.backgroundImage = 'linear-gradient(#5F0A87, #A4508B)';
-        missesLeft.innerText = `Misses left: ${board.misses}`;
+        board.projectiles--;
 
-        if (board.isLoss()) {
-            currResults.innerText = 'You\'re sunk! Better luck next time, captain.';
-            gameBox.style.display = 'none';
+        currButton.style.backgroundImage = 'linear-gradient(#5F0A87, #A4508B)';
+        
+        alterProjectiles();
+
+        if (board.checkWin() === false) {
+            currResults.style.display = 'flex';
+            currResults.innerText = 'You\'re obliterated! Better luck next time, commander.';
             reset.style.display = 'block';
 
-            winScore.style.display = 'none';
-            loseScore.style.display = 'none';
-
-            hitsLeft.style.display = 'none';
-            missesLeft.style.display = 'none';
+            gameBox.style.display = 'none';
+            movesBox.style.display = 'none';
+            scoreBox.style.display = 'none';
+            body.backgroundPosition = 'center'
 
             savedLosses++;
             sessionStorage.setItem('totalLosses', savedLosses);
@@ -60,20 +88,22 @@ const checkPosition = (e) => {
         currButton.innerText = currButtonVal;
         currButton.style.backgroundImage = 'linear-gradient(#DE4DAA, #F6D327)';
 
-        board.numRemaining--;
-        hitsLeft.innerText = `Hits left: ${board.numRemaining}`;
+        board.projectiles--;
+        if (board.fleetObj[currButtonVal] > 0) board.fleetObj[currButtonVal] -= 1;
+        board.ships--;
 
-        if (board.isWin()) {
-            currResults.innerText = 'Arr, ye sunk all me ships!';
-            gameBox.style.display = 'none';
+        alterProjectiles();
+        alterFleets();
+
+        if (board.checkWin() === true) {
+            currResults.style.display = 'flex';
+            currResults.innerText = 'You\'ve obliterated the enemy fleet! Good work, commander.';
             reset.style.display = 'block';
 
-            
-            winScore.style.display = 'none';
-            loseScore.style.display = 'none';
-
-            hitsLeft.style.display = 'none';
-            missesLeft.style.display = 'none';
+            gameBox.style.display = 'none';
+            movesBox.style.display = 'none';
+            scoreBox.style.display = 'none';
+            body.backgroundPosition = 'center'
 
             savedWins++;
             sessionStorage.setItem('totalWins', savedWins);
@@ -108,6 +138,8 @@ const populateBoard = (grid) => {
 };
 
 window.addEventListener("DOMContentLoaded", () => {
+    alterProjectiles();
+    alterFleets();
     populateBoard(grid);
 
     const reset = document.getElementById('reset');

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battleship</title>
+    <title>StarFleets</title>
     
     <link rel="stylesheet" href="./assets/css/index.css">
 
@@ -17,16 +17,24 @@
 </head>
 
 <body>
-
-    <h1 class="headers">StarFleet</h1>
+    <h1 class="headers">StarFleets</h1>
     <h2 class="headers" id="results"></h2>
+
     <button id="reset">Play Again</button>
+
     <div id="gameBox"></div>
-    <p class="score" id="wins"></p> 
-    <p class="score" id="losses"></p> 
-    <p class="moves" id="hitsLeft"></p>
-    <p class="moves" id="missesLeft"></p>
-    
+
+    <div id="scoreBox">
+        <p class="score" id="wins"></p> 
+        <p class="score" id="losses"></p>
+    </div>
+
+    <div id="movesBox">
+        <p class="moves" id="projectiles-left">Projectiles</p>
+        <p class="moves" id="projectiles"></p>
+        <p class="moves" id="fleets-left">Fleets</p>
+        <p class="moves" id="fleets"></p>
+    </div>
 </body>
 </html>
 </center>
