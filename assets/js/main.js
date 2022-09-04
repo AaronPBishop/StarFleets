@@ -59,6 +59,7 @@ const checkPosition = (e) => {
 
     if (!currButtonVal) {
         currButton.innerText = 'X';
+        currButton.style.color = 'white';
 
         board.projectiles--;
 

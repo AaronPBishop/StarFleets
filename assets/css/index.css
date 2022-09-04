@@ -93,7 +93,7 @@ h2 {
     border-radius: 10px;
     margin: 1px;
 
-    color: white;
+    color: black;
     box-shadow: 1px 2px 1px black;    
 
     position: relative;
@@ -120,7 +120,7 @@ h2 {
     min-width: 220px;
     max-width: 220px;
     
-    box-shadow: 0px 10px 20px rgb(255, 0, 180);
+    box-shadow: 0px 3px 20px rgb(255, 0, 180);
 
     position: relative;
     left: 475px;
@@ -147,7 +147,7 @@ h2 {
 
     position: relative;
     left: 475px;
-    bottom: 280px;
+    bottom: 295px;
 
     margin: 25px;
     border-radius: 25px;
